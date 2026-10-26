@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 2.0 — 生病 / Болезни</title>
+<style>
+  :root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #222;
+    --muted: #666;
+    --blue: #2b6cb0;
+    --green: #28a745;
+    --red: #dc3545;
+    --border: #dde3ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .container { max-width: 980px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, #2b6cb0, #4299e1);
+    color: white;
+    padding: 26px 24px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+  }
+  header h1 { margin: 0 0 8px; font-size: 28px; }
+  header p { margin: 0; opacity: 0.95; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  }
+  h2 { margin-top: 0; color: var(--blue); font-size: 22px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #edf4ff; }
+  .pinyin { color: var(--muted); font-size: 0.95em; }
+  .hint { color: var(--muted); font-size: 0.95em; }
+  .question {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin: 12px 0;
+    background: #fff;
+  }
+  .question p { margin: 0 0 10px; font-weight: 600; }
+  label.option {
+    display: block;
+    padding: 8px 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f8faff;
+    border: 1px solid transparent;
+  }
+  label.option:hover { border-color: #b8d4ff; }
+  select {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #b9c6da;
+    background: #fff;
+    font-size: 16px;
+    margin: 0 4px;
+  }
+  .word-bank {
+    background: #fff8e6;
+    border: 1px dashed #e0b84a;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin: 12px 0;
+  }
+  .radio-question.correct,
+  .select-question.correct {
+    border-left: 6px solid var(--green);
+    background: #eefaf1;
+  }
+  .radio-question.incorrect,
+  .select-question.incorrect {
+    border-left: 6px solid var(--red);
+    background: #fff0f1;
+  }
+  .buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .check-btn { background: var(--blue); color: white; }
+  .reset-btn { background: #e2e8f0; color: #1a202c; }
+  button:hover { opacity: 0.92; }
+  #score {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  blockquote {
+    background: #f8faff;
+    border-left: 5px solid #4299e1;
+    margin: 12px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  @media (max-width: 640px) {
+    body { padding: 12px; }
+    .card { padding: 16px; }
+    th, td { padding: 8px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Урок: 生病 / HSK 2.0</h1>
+    <p>Отработка лексики: 生病, 身体, 舒服, 医院, 医生, 药, 休息, 喝水, 运动, 住院, 出院</p>
+  </header>
+
+  <section class="card">
+    <h2>1. Словарь / 生词</h2>
+    <table>
+      <tr>
+        <th>词语</th>
+        <th>拼音</th>
+        <th>Перевод</th>
+        <th>例句</th>
+      </tr>
+      <tr>
+        <td>生病</td>
+        <td class="pinyin">shēngbìng</td>
+        <td>заболеть</td>
+        <td>我生病了。</td>
+      </tr>
+      <tr>
+        <td>身体</td>
+        <td class="pinyin">shēntǐ</td>
+        <td>тело; здоровье</td>
+        <td>我身体不舒服。</td>
+      </tr>
+      <tr>
+        <td>舒服</td>
+        <td class="pinyin">shūfu</td>
+        <td>удобный; хорошо себя чувствовать</td>
+        <td>今天我不舒服。</td>
+      </tr>
+      <tr>
+        <td>医院</td>
+        <td class="pinyin">yīyuàn</td>
+        <td>больница</td>
+        <td>妈妈带我去医院。</td>
+      </tr>
+      <tr>
+        <td>医生</td>
+        <td class="pinyin">yīshēng</td>
+        <td>врач</td>
+        <td>医生让我多休息。</td>
+      </tr>
+      <tr>
+        <td>药</td>
+        <td class="pinyin">yào</td>
+        <td>лекарство</td>
+        <td>一天吃三次药。</td>
+      </tr>
+      <tr>
+        <td>休息</td>
+        <td class="pinyin">xiūxi</td>
+        <td>отдыхать</td>
+        <td>你要好好休息。</td>
+      </tr>
+      <tr>
+        <td>喝水</td>
+        <td class="pinyin">hē shuǐ</td>
+        <td>пить воду</td>
+        <td>多喝水。</td>
+      </tr>
+      <tr>
+        <td>运动</td>
+        <td class="pinyin">yùndòng</td>
+        <td>спорт; двигаться</td>
+        <td>多运动对身体好。</td>
+      </tr>
+      <tr>
+        <td>住院</td>
+        <td class="pinyin">zhùyuàn</td>
+        <td>лечь в больницу</td>
+        <td>医生让我住院。</td>
+      </tr>
+      <tr>
+        <td>出院</td>
+        <td class="pinyin">chūyuàn</td>
+        <td>выписаться из больницы</td>
+        <td>他今天出院了。</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>2. Выберите правильный перевод / 选择正确的意思</h2>
+
+    <div class="radio-question question" data-answer="b">
+      <p>1. 住院</p>
+      <label class="option"><input type="radio" name="q1" value="a"> выписаться из больницы</label>
+      <label class="option"><input type="radio" name="q1" value="b"> лечь в больницу</label>
+      <label class="option"><input type="radio" name="q1" value="c"> отдыхать</label>
+    </div>
+
+    <div class="radio-question question" data-answer="b">
+      <p>2. 出院</p>
+      <label class="option"><input type="radio" name="q2" value="a"> лечь в больницу</label>
+      <label class="option"><input type="radio" name="q2" value="b"> выписаться из больницы</label>
+      <label class="option"><input type="radio" name="q2" value="c"> заболеть</label>
+    </div>
+
+    <div class="radio-question question" data-answer="b">
+      <p>3. 药</p>
+      <label class="option"><input type="radio" name="q3" value="a"> врач</label>
+      <label class="option"><input type="radio" name="q3" value="b"> лекарство</label>
+      <label class="option"><input type="radio" name="q3" value="c"> больница</label>
+    </div>
+
+    <div class="radio-question question" data-answer="a">
+      <p>4. 舒服</p>
+      <label class="option"><input type="radio" name="q4" value="a"> удобно / хорошо себя чувствовать</label>
+      <label class="option"><input type="radio" name="q4" value="b"> устать</label>
+      <label class="option"><input type="radio" name="q4" value="c"> болеть</label>
+    </div>
+
+    <div class="radio-question question" data-answer="b">
+      <p>5. 运动</p>
+      <label class="option"><input type="radio" name="q5" value="a"> отдых</label>
+      <label class="option"><input type="radio" name="q5" value="b"> спорт / движение</label>
+      <label class="option"><input type="radio" name="q5" value="c"> вода</label>
+    </div>
+
+    <div class="radio-question question" data-answer="c">
+      <p>6. 医生</p>
+      <label class="option"><input type="radio" name="q6" value="a"> больница</label>
+      <label class="option"><input type="radio" name="q6" value="b"> лекарство</label>
+      <label class="option"><input type="radio" name="q6" value="c"> врач</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>3. Вставьте подходящее слово / 填空</h2>
+    <div class="word-bank">
+      <strong>Слова для выбора:</strong>
+      医院, 医生, 药, 休息, 喝水, 运动, 住院, 出院
+    </div>
+
+    <div class="select-question question" data-answer="医院">
+      <p>1. 我生病了，妈妈带我去 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 。</p>
+    </div>
+
+    <div class="select-question question" data-answer="医生">
+      <p>2. <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 说我需要多休息。</p>
+    </div>
+
+    <div class="select-question question" data-answer="药">
+      <p>3. 这种 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 一天吃三次。</p>
+    </div>
+
+    <div class="select-question question" data-answer="休息">
+      <p>4. 你身体不舒服，要好好 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 。</p>
+    </div>
+
+    <div class="select-question question" data-answer="喝水">
+      <p>5. 天气热，要多 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 。</p>
+    </div>
+
+    <div class="select-question question" data-answer="运动">
+      <p>6. 每天 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 对身体好。</p>
+    </div>
+
+    <div class="select-question question" data-answer="住院">
+      <p>7. 医生让我 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> ，因为我要在医院住几天。</p>
+    </div>
+
+    <div class="select-question question" data-answer="出院">
+      <p>8. 住了五天院，他今天 <select>
+        <option value="">— выберите —</option>
+        <option>医院</option><option>医生</option><option>药</option><option>休息</option>
+        <option>喝水</option><option>运动</option><option>住院</option><option>出院</option>
+      </select> 了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>4. Чтение диалога / 读对话</h2>
+    <blockquote>
+      A: 你哪里不舒服？<br>
+      B: 我头很疼，身体很不舒服。<br>
+      A: 你吃药了吗？<br>
+      B: 吃了。医生让我多喝水，多休息。<br>
+      A: 你要住院吗？<br>
+      B: 是的，我要住院三天。医生说三天后可以出院。
+    </blockquote>
+
+    <div class="radio-question question" data-answer="a">
+      <p>1. B 哪里不舒服？</p>
+      <label class="option"><input type="radio" name="q7" value="a"> 头很疼</label>
+      <label class="option"><input type="radio" name="q7" value="b"> 肚子疼</label>
+      <label class="option"><input type="radio" name="q7" value="c"> 腿疼</label>
+    </div>
+
+    <div class="radio-question question" data-answer="b">
+      <p>2. 医生让 B 做什么？</p>
+      <label class="option"><input type="radio" name="q8" value="a"> 多运动</label>
+      <label class="option"><input type="radio" name="q8" value="b"> 多喝水、多休息</label>
+      <label class="option"><input type="radio" name="q8" value="c"> 多吃药</label>
+    </div>
+
+    <div class="radio-question question" data-answer="b">
+      <p>3. B 什么时候可以出院？</p>
+      <label class="option"><input type="radio" name="q9" value="a"> 今天</label>
+      <label class="option"><input type="radio" name="q9" value="b"> 三天后</label>
+      <label class="option"><input type="radio" name="q9" value="c"> 五天后</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="buttons">
+      <button class="check-btn" onclick="checkAnswers()">Проверить / 检查答案</button>
+      <button class="reset-btn" onclick="resetLesson()">Сбросить / 重新开始</button>
+    </div>
+    <div id="score"></div>
+  </section>
+
+</div>
+
+<script>
+  function checkAnswers() {
+    let score = 0;
+    let total = 0;
+
+    document.querySelectorAll('.radio-question').forEach(function(q) {
+      total++;
+      q.classList.remove('correct', 'incorrect');
+      const selected = q.querySelector('input[type="radio"]:checked');
+      if (selected && selected.value === q.dataset.answer) {
+        q.classList.add('correct');
+        score++;
+      } else {
+        q.classList.add('incorrect');
+      }
+    });
+
+    document.querySelectorAll('.select-question').forEach(function(q) {
+      total++;
+      q.classList.remove('correct', 'incorrect');
+      const selected = q.querySelector('select');
+      if (selected.value === q.dataset.answer) {
+        q.classList.add('correct');
+        score++;
+      } else {
+        q.classList.add('incorrect');
+      }
+    });
+
+    const scoreBox = document.getElementById('score');
+    scoreBox.textContent = 'Правильно: ' + score + ' из ' + total + '. ' +
+      (score === total ? 'Отлично! 非常好！' : 'Повторите слова и попробуйте ещё раз.');
+  }
+
+  function resetLesson() {
+    document.querySelectorAll('.radio-question, .select-question').forEach(function(q) {
+      q.classList.remove('correct', 'incorrect');
+    });
+    document.querySelectorAll('input[type="radio"]').forEach(function(input) {
+      input.checked = false;
+    });
+    document.querySelectorAll('select').forEach(function(select) {
+      select.selectedIndex = 0;
+    });
+    document.getElementById('score').textContent = '';
+  }
+</script>
+</body>
+</html>
